@@ -49,7 +49,8 @@ def get_current_revision():
 def stamp_latest_revision():
     # Get proper migrations directory regardless of cwd
     directory = os.path.join(os.path.dirname(app.root_path), "migrations")
-    stamp(directory=directory)
+    # Stamp with specific revision to avoid multiple heads error
+    stamp(directory=directory, revision="e2604240001p")
 
 
 def get_available_revisions():
